@@ -72,3 +72,52 @@
   font-size: 0.875rem;
   color: var(--gray-400);
 }
+
+.commentForm {
+  width: 100%;
+
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-600);
+}
+
+.commentForm > strong {
+  line-height: 160%;
+  color: var(--gray-100);
+}
+
+.commentForm textarea {
+  width: 100%;
+  height: 6rem;
+
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 0;
+  
+  resize: none;
+  
+  background-color: var(--gray-900);
+  
+  color: var(--gray-100);
+  line-height: 140%;
+}
+
+.commentForm button[type=submit] {
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 0;
+
+  background-color: var(--green-500);
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 300ms;
+}
+
+.commentForm button[type=submit]:hover {
+  background-color: var(--green-300);
+  transition: all 300ms;
+}
