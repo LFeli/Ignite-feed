@@ -1,11 +1,11 @@
 import { Header } from "./components/header/Header"
 import { Sidebar } from './components/sidebar/Sidebar';
-import { Post } from './components/post/Post';
+import { Post, PostType } from './components/post/Post';
 
 import './global.css';
 import styles from './App.module.css';
 
-const posts = [
+const posts: PostType[] = [
   {
     id: 1,
     author: {
@@ -37,8 +37,6 @@ const posts = [
 ];
 
 export function App() {
-  console.log(posts.length)
-
   return (
     <div>
       <Header />
@@ -51,9 +49,7 @@ export function App() {
             return (
               <Post 
                 key={post.id}
-                author={post.author}
-                content={post.content}
-                publishedAt={post.publishedAt}
+                post={post}
               />
             )
           })}
