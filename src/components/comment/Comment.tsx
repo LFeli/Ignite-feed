@@ -2,6 +2,7 @@ import { ThumbsUp, Trash } from '@phosphor-icons/react'
 import styles from './comment.module.css'
 import { Avatar } from '../avatar/Avatar'
 import { useState } from 'react'
+import { Modal } from '../modal/Modal';
 
 interface CommentProps {
   content: string;
@@ -10,9 +11,23 @@ interface CommentProps {
 
 export function Comment({ content, onDeleteComment }: CommentProps) {
   const [likeCount, setLikeCount] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
 
   function handleDeleteComment() {
-    onDeleteComment(content)
+    setModalOpen(true)
+    // onDeleteComment(content)
+  }
+
+  function handleConfirmDelete() {
+    setModalOpen(false)
+    
+    setTimeout(() => {
+      onDeleteComment(content);
+    }, 150);
+  }
+
+  function handleCloseModal() {
+    setModalOpen(false);
   }
 
   function handleLikeComment(){
@@ -48,6 +63,8 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
           </button>
         </footer>
       </div>
+
+      <Modal isOpen={modalOpen} onClose={handleCloseModal} onConfirm={handleConfirmDelete}/>
     </div>
   )
 }
