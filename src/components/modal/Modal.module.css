@@ -8,6 +8,8 @@
   background: rgba(0, 0, 0, 0.375);
   backdrop-filter: blur(4px);
 
+  visibility: visible;
+
   animation: overlayShow 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -21,35 +23,41 @@
   background: rgba(0, 0, 0, 0.375);
   backdrop-filter: blur(4px);
 
+  visibility: hidden;
+
 
   animation: overlayHide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .modal {
-  width: 100%;
-  max-width: 27rem;
+  visibility: visible;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 27rem;
+  
+  padding: 2rem;
   background-color: var(--gray-800);
   border-radius: .625rem;
-  padding: 2rem;
+  transform: translate(-50%, -50%);
 
   animation: contentShow 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modalClosed {
-  width: 100%;
-  max-width: 27rem;
+  visibility: hidden;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 27rem;
+
+  padding: 2rem;
   background-color: var(--gray-800);
   border-radius: .625rem;
-  padding: 2rem;
-
+  transform: translate(-50%, -50%);
+  
   animation: contentHide 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -74,8 +82,7 @@
   justify-content: center;
   gap: 0.5rem;
 
-  padding-top: 1.5rem;
-  padding-bottom: 0.5rem;
+  padding:  1.5rem 0 0.5rem 0;
 }
 
 .buttonWrapper button {
@@ -132,10 +139,8 @@ button:last-child{
 @keyframes overlayHide {
   0% {
     opacity: 1;
-    visibility: visible;
   }
   100% {
     opacity: 0;
-    visibility: hidden;
   }
 }
