@@ -22,6 +22,7 @@ export interface PostType {
   author: Author;
   publishedAt: Date; 
   content: Content[];
+  comments: string[];
 }
 
 interface PostProps {
@@ -29,9 +30,7 @@ interface PostProps {
 } 
 
 export function Post({ post }: PostProps) {
-  const [comments, setComments] = useState([
-    'Post muito bacana, hein?!'
-  ])
+  const [comments, setComments] = useState( post.comments || [])
 
   const [newCommentText, setNewCommentText] = useState('')
 
@@ -115,10 +114,10 @@ export function Post({ post }: PostProps) {
       </form>
 
       <div className={styles.commentList}>
-        {comments.map( comment => {
+        {comments.map((comment, index) => {
           return (
             <Comment 
-              key={comment} 
+              key={index} 
               content={comment} 
               onDeleteComment={deleteComment} 
             />
